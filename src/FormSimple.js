@@ -21,9 +21,9 @@ export default class FormSimple extends React.Component {
 
     return (
       <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
-        <input id="email" type="email" onFocus={this.handleFocus} onBlur={this.handleBlur} />
+        <input id="email" type="email" />
         <br />
-        <input id="password" type="password" onFocus={this.handleFocus} onBlur={this.handleBlur} />
+        <input id="password" type="password" />
         <br />
         <button type='submite'>Submite</button>
       </form>
