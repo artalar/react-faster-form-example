@@ -1,16 +1,16 @@
-import * as React from 'react';
+import * as React from "react";
 
-const validate = (id, value) => !value.length && 'required';
+const validate = (id, value) => !value.length && "required";
 
 export default class FormSimpleWithValidation extends React.Component {
   state = {
     touched: {},
-    errors: {},
+    errors: {}
   };
 
   values = {
-    email: '',
-    password: '',
+    email: "",
+    password: ""
   };
 
   handleFocus = e => {
@@ -22,8 +22,8 @@ export default class FormSimpleWithValidation extends React.Component {
     this.setState({
       errors: {
         ...this.state.errors,
-        [id]: validate(id, value),
-      },
+        [id]: validate(id, value)
+      }
     });
   };
 
@@ -40,11 +40,14 @@ export default class FormSimpleWithValidation extends React.Component {
     }, {});
 
     if (!Object.keys(errors).length) {
-      alert('SUCCESS: ' + JSON.stringify(this.values))
+      alert("SUCCESS: " + JSON.stringify(this.values));
     } else {
       this.setState({
         errors,
-        touched: Object.keys(this.values).reduce((acc, key) => ({ ...acc, [key]: true }), {}),
+        touched: Object.keys(this.values).reduce(
+          (acc, key) => ({ ...acc, [key]: true }),
+          {}
+        )
       });
     }
   };
@@ -54,15 +57,27 @@ export default class FormSimpleWithValidation extends React.Component {
 
     return (
       <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
-        <input id="email" type="email" onFocus={this.handleFocus} onBlur={this.handleBlur} />
+        <input
+          id="email"
+          type="email"
+          onFocus={this.handleFocus}
+          onBlur={this.handleBlur}
+        />
         <br />
-        <label htmlFor="email">{touched.email ? errors.email : ''}</label>
+        <label htmlFor="email">{touched.email ? errors.email : ""}</label>
         <br />
-        <input id="password" type="password" onFocus={this.handleFocus} onBlur={this.handleBlur} />
+        <input
+          id="password"
+          type="password"
+          onFocus={this.handleFocus}
+          onBlur={this.handleBlur}
+        />
         <br />
-        <label htmlFor="password">{touched.password ? errors.password : ''}</label>
+        <label htmlFor="password">
+          {touched.password ? errors.password : ""}
+        </label>
         <br />
-        <button type='submite'>Submite</button>
+        <button type="submite">Submite</button>
       </form>
     );
   }

@@ -1,10 +1,9 @@
-import * as React from 'react';
+import * as React from "react";
 
 export default class FormSimple extends React.Component {
-
   values = {
-    email: '',
-    password: '',
+    email: "",
+    password: ""
   };
 
   handleChange = e => {
@@ -14,18 +13,27 @@ export default class FormSimple extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    alert('SUCCESS: ' + JSON.stringify(this.values))
+    alert("SUCCESS: " + JSON.stringify(this.values));
   };
 
   render() {
-
     return (
       <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
-        <input id="email" type="email" onFocus={this.handleFocus} onBlur={this.handleBlur} />
+        <input
+          id="email"
+          type="email"
+          onFocus={this.handleFocus}
+          onBlur={this.handleBlur}
+        />
         <br />
-        <input id="password" type="password" onFocus={this.handleFocus} onBlur={this.handleBlur} />
+        <input
+          id="password"
+          type="password"
+          onFocus={this.handleFocus}
+          onBlur={this.handleBlur}
+        />
         <br />
-        <button type='submite'>Submite</button>
+        <button type="submite">Submite</button>
       </form>
     );
   }
